@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ 'title.note_details'|trans({'%id%': note.id|default('')}) }}
+{% endblock %}
+
+{% block body %}
+    <h1>{{ 'title.note_details'|trans({'%id%': note.id|default('')}) }}</h1>
+    {% if note is defined and note|length %}
+        <dl class="dl-horizontal">
+            <dt>{{ 'label.id'|trans }}</dt>
+            <dd>{{ note.id }}</dd>
+            <dt>{{ 'label.content' }}</dt>
+            <dd>{{ note.content }}</dd>
+            <dt>{{ 'label.category'|trans }}</dt>
+            <dd>{{  note.category.title }}</dd>
+            <dt>{{ 'label.tags'|trans }}</dt>
+            <dd>
+                {% for tag in note.tags %}
+                    {{ tag.title }}
+                {% endfor %}
+            </dd>
+        </dl>
+        <p>
+            <a href="{{ url('note_index') }}" title="{{ 'action.back_to_list'|trans }}">
+                {{ 'action.back_to_list'|trans }}
+            </a>
+        </p>
+    {% else %}
+        {% include 'default/_single_alert_message.html.twig' with {
+            type: 'warning',
+            message: 'message.record_not_found'|trans
+        } %}
+    {% endif %}
+{% endblock %}
