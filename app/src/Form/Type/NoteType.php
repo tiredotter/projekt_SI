@@ -10,8 +10,8 @@ use App\Entity\Note;
 use App\Form\DataTransformer\TagsDataTransformer;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -22,8 +22,6 @@ class NoteType extends AbstractType
 {
     /**
      * Tags data transformer.
-     *
-     * @var TagsDataTransformer
      */
     private TagsDataTransformer $tagsDataTransformer;
 
@@ -58,12 +56,12 @@ class NoteType extends AbstractType
                 'required' => true,
                 'attr' => ['max_length' => 64],
             ]);
-        
+
         $builder->add(
             'content',
             TextareaType::class,
             [
-                'label'=> 'label.content',
+                'label' => 'label.content',
                 'required' => true,
                 'attr' => ['max_length' => 65535],
             ]);

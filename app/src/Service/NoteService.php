@@ -17,7 +17,7 @@ use Symfony\Component\Security\Core\Security;
  */
 class NoteService implements NoteServiceInterface
 {
-   /**
+    /**
      * Category service.
      */
     private CategoryServiceInterface $categoryService;
@@ -37,12 +37,12 @@ class NoteService implements NoteServiceInterface
      */
     private PaginatorInterface $paginator;
 
-    /** 
+    /**
      * Security.
      */
     private $security;
 
-     /**
+    /**
      * Constructor.
      *
      * @param CategoryServiceInterface $categoryService Category service

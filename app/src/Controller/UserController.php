@@ -10,7 +10,8 @@
 namespace App\Controller;
 
 use App\Entity\User;
-use App\Form\Type\UserType;
+use App\Form\Type\UserEmailType;
+use App\Form\Type\UserPasswordType;
 use App\Service\UserServiceInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -37,12 +38,8 @@ class UserController extends AbstractController
      */
     private TranslatorInterface $translator;
 
-
     /**
      * Constructor.
-     *
-     * @param UserServiceInterface $userService
-     * @param TranslatorInterface  $translator
      */
     public function __construct(UserServiceInterface $userService, TranslatorInterface $translator)
     {
@@ -67,13 +64,8 @@ class UserController extends AbstractController
         return $this->render('user/index.html.twig', ['pagination' => $pagination]);
     }
 
-
     /**
      * Show action.
-     *
-     * @param User $user
-     *
-     * @return Response
      */
     #[Route(
         '/{id}',
@@ -125,22 +117,22 @@ class UserController extends AbstractController
     }
 
     /**
-     * Edit action.
+     * Edit email action.
      *
      * @param Request $request HTTP request
      * @param User    $user    User entity
      *
      * @return Response HTTP response
      */
-    #[Route('/{id}/edit', name: 'user_edit', requirements: ['id' => '[1-9]\d*'], methods: 'GET|PUT')]
+    #[Route('/{id}/edit/email', name: 'email_edit', requirements: ['id' => '[1-9]\d*'], methods: 'GET|PUT')]
     public function edit(Request $request, User $user): Response
     {
         $form = $this->createForm(
-            UserType::class,
+            UserEmailType::class,
             $user,
             [
                 'method' => 'PUT',
-                'action' => $this->generateUrl('user_edit', ['id' => $user->getId()]),
+                'action' => $this->generateUrl('email_edit', ['id' => $user->getId()]),
             ]
         );
         $form->handleRequest($request);
@@ -157,7 +149,48 @@ class UserController extends AbstractController
         }
 
         return $this->render(
-            'user/edit.html.twig',
+            'user/edit/email.html.twig',
+            [
+                'form' => $form->createView(),
+                'user' => $user,
+            ]
+        );
+    }
+
+    /**
+     * Edit Password action.
+     *
+     * @param Request $request HTTP request
+     * @param User    $user    User entity
+     *
+     * @return Response HTTP response
+     */
+    #[Route('/{id}/edit/password', name: 'user_password', requirements: ['id' => '[1-9]\d*'], methods: 'GET|PUT')]
+    public function editPassword(Request $request, User $user): Response
+    {
+        $form = $this->createForm(
+            UserPasswordType::class,
+            $user,
+            [
+                'method' => 'PUT',
+                'action' => $this->generateUrl('user_password', ['id' => $user->getId()]),
+            ]
+        );
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->userService->save($user);
+
+            $this->addFlash(
+                'success',
+                $this->translator->trans('message.created_successfully')
+            );
+
+            return $this->redirectToRoute('user_index');
+        }
+
+        return $this->render(
+            'user/edit/password.html.twig',
             [
                 'form' => $form->createView(),
                 'user' => $user,

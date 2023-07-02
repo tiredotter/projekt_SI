@@ -23,20 +23,12 @@ interface CategoryServiceInterface
     public function getPaginatedList(int $page): PaginationInterface;
 
     /**
-     * Save category
-     *
-     * @param Category $category
-     *
-     * @return void
+     * Save category.
      */
     public function save(Category $category): void;
 
     /**
-     * Delete category
-     *
-     * @param Category $category
-     *
-     * @return bool
+     * Delete category.
      */
     public function delete(Category $category): bool;
 
@@ -50,11 +42,7 @@ interface CategoryServiceInterface
     public function canBeDeleted(Category $category): bool;
 
     /**
-     * Find category by ID
-     *
-     * @param int $id
-     *
-     * @return Category|null
+     * Find category by ID.
      */
     public function findOneById(int $id): ?Category;
 }

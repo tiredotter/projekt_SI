@@ -17,8 +17,8 @@ interface NoteServiceInterface
     /**
      * Get paginated list.
      *
-     * @param int                $page    Page number
-     * @param User               $author  Tasks author
+     * @param int  $page   Page number
+     * @param User $author Tasks author
      *
      * @return PaginationInterface Paginated list
      */
@@ -37,5 +37,4 @@ interface NoteServiceInterface
      * @param Note $note Note entity
      */
     public function delete(Note $note): void;
-    
 }

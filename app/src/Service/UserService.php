@@ -3,13 +3,14 @@
  * This is the license block.
  * It can contain licensing information, copyright notices, etc.
  */
+
 namespace App\Service;
 
 use App\Entity\User;
+use App\Repository\NoteRepository;
 use App\Repository\UserRepository;
 use Doctrine\ORM\NonUniqueResultException;
 use Doctrine\ORM\NoResultException;
-use App\Repository\NoteRepository;
 use Knp\Component\Pager\Pagination\PaginationInterface;
 use Knp\Component\Pager\PaginatorInterface;
 
@@ -24,17 +25,11 @@ class UserService implements UserServiceInterface
 
     /**
      * Paginator.
-     * 
-
      */
     private PaginatorInterface $paginator;
 
     /**
-     * Constructor
-     *
-     * @param UserRepository     $userRepository
-     * @param PaginatorInterface $paginator
-     * @param NoteRepository   $noteRepository
+     * Constructor.
      */
     public function __construct(UserRepository $userRepository, PaginatorInterface $paginator, NoteRepository $noteRepository)
     {
@@ -44,11 +39,7 @@ class UserService implements UserServiceInterface
     }
 
     /**
-     * Save user
-     *
-     * @param User $user
-     *
-     * @return void
+     * Save user.
      */
     public function save(User $user): void
     {
@@ -56,11 +47,7 @@ class UserService implements UserServiceInterface
     }
 
     /**
-     * Create user
-     *
-     * @param User $user
-     *
-     * @return void
+     * Create user.
      */
     public function create(User $user): void
     {
@@ -68,11 +55,7 @@ class UserService implements UserServiceInterface
     }
 
     /**
-     * Delete user
-     *
-     * @param User $user
-     *
-     * @return bool
+     * Delete user.
      */
     public function delete(User $user): bool
     {
@@ -85,13 +68,8 @@ class UserService implements UserServiceInterface
         return false;
     }
 
-
     /**
      * Can user be deleted?
-     *
-     * @param User $user
-     *
-     * @return bool
      */
     public function canBeDeleted(User $user): bool
     {

@@ -6,7 +6,7 @@
 
 {% block body %}
 
-  <h2>See all in "{{ category.title }}"</h2>
+  <h2>"{{ category.title }}"</h2>
 
   {% if pagination is defined and pagination.items|length %}
 
@@ -17,18 +17,18 @@
     <table class="table table-striped">
       <thead>
         <tr>
-          <th>{{ knp_pagination_sortable(pagination, 'label.title'|trans, 'note.title') }}</th>
+          <th>{{ knp_pagination_sortable(pagination, 'label.title'|trans, 'category.title') }}</th>
           <th>{{ 'label.actions'|trans }}</th>
         </tr>
       </thead>
       <tbody>
 
-        {% for note in pagination.items %}
+        {% for category in pagination.items %}
     
           <tr>
-            <td>{{ note.title }}</td>
+            <td>{{ category.title }}</td>
             <td>
-              <a href="{{ url('note_show', {id: note.id}) }}" title="{{ 'action.show'|trans }}">
+              <a href="{{ url('category_show', {id: category.id}) }}" title="{{ 'action.show'|trans }}">
                   {{ 'action.show'|trans }}
               </a>
             </td>

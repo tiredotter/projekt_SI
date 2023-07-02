@@ -5,7 +5,6 @@
 
 namespace App\Security;
 
-use Exception;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -48,7 +47,7 @@ class LoginFormAuthenticator extends AbstractLoginFormAuthenticator
 
     /**
      * Constructor.
-     * 
+     *
      * @param UrlGeneratorInterface $urlGenerator Url generator
      */
     public function __construct(UrlGeneratorInterface $urlGenerator)
@@ -83,7 +82,7 @@ class LoginFormAuthenticator extends AbstractLoginFormAuthenticator
      * a UserNotFoundException when the user cannot be found).
      *
      * @param Request $request HTTP request
-     *  
+     *
      * @return Passport Passport
      *
      * @throws AuthenticationException
@@ -118,7 +117,7 @@ class LoginFormAuthenticator extends AbstractLoginFormAuthenticator
      *
      * @return Response|null HTTP response
      *
-     * @throws Exception
+     * @throws \Exception
      */
     public function onAuthenticationSuccess(Request $request, TokenInterface $token, string $firewallName): ?Response
     {

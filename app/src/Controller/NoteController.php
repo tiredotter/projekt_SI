@@ -5,17 +5,17 @@
 
 namespace App\Controller;
 
- use App\Entity\Note;
- use App\Entity\User;
- use App\Form\Type\NoteType;
- use App\Service\NoteServiceInterface;
- use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
- use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
- use Symfony\Component\Form\Extension\Core\Type\FormType;
- use Symfony\Component\HttpFoundation\Request;
- use Symfony\Component\HttpFoundation\Response;
- use Symfony\Component\Routing\Annotation\Route;
- use Symfony\Contracts\Translation\TranslatorInterface;
+use App\Entity\Note;
+use App\Entity\User;
+use App\Form\Type\NoteType;
+use App\Service\NoteServiceInterface;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\Extension\Core\Type\FormType;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
  * Class NoteController.
@@ -41,8 +41,8 @@ class NoteController extends AbstractController
      */
     public function __construct(NoteServiceInterface $noteService, TranslatorInterface $translator)
     {
-        $this->noteService = $noteService;
         $this->translator = $translator;
+        $this->noteService = $noteService;
     }
 
     /**
@@ -130,8 +130,8 @@ class NoteController extends AbstractController
     public function edit(Request $request, Note $note): Response
     {
         $form = $this->createForm(
-            NoteType::class, 
-            $note, 
+            NoteType::class,
+            $note,
             [
                 'method' => 'PUT',
                 'action' => $this->generateUrl('note_edit', ['id' => $note->getId()]),
@@ -151,7 +151,7 @@ class NoteController extends AbstractController
         }
 
         return $this->render(
-            'note/edit.html.twig', 
+            'note/edit.html.twig',
             [
                 'form' => $form->createView(),
                 'note' => $note,
@@ -172,8 +172,8 @@ class NoteController extends AbstractController
     public function delete(Request $request, Note $note): Response
     {
         $form = $this->createForm(
-            FormType::class, 
-            $note, 
+            FormType::class,
+            $note,
             [
                 'method' => 'DELETE',
                 'action' => $this->generateUrl('note_delete', ['id' => $note->getId()]),
@@ -193,7 +193,7 @@ class NoteController extends AbstractController
         }
 
         return $this->render(
-            'note/delete.html.twig', 
+            'note/delete.html.twig',
             [
                 'form' => $form->createView(),
                 'note' => $note,

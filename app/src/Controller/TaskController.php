@@ -84,8 +84,8 @@ class TaskController extends AbstractController
     {
         $task = new Task();
         $form = $this->createForm(
-            TaskType::class, 
-            $task, 
+            TaskType::class,
+            $task,
             ['action' => $this->generateUrl('task_create')]
         );
         $form->handleRequest($request);
@@ -101,7 +101,7 @@ class TaskController extends AbstractController
             return $this->redirectToRoute('task_index');
         }
 
-        return $this->render('task/create.html.twig',  ['form' => $form->createView()]);
+        return $this->render('task/create.html.twig', ['form' => $form->createView()]);
     }
 
     /**
@@ -116,8 +116,8 @@ class TaskController extends AbstractController
     public function edit(Request $request, Task $task): Response
     {
         $form = $this->createForm(
-            TaskType::class, 
-            $task, 
+            TaskType::class,
+            $task,
             [
                 'method' => 'PUT',
                 'action' => $this->generateUrl('task_edit', ['id' => $task->getId()]),
@@ -137,7 +137,7 @@ class TaskController extends AbstractController
         }
 
         return $this->render(
-            'task/edit.html.twig', 
+            'task/edit.html.twig',
             [
                 'form' => $form->createView(),
                 'task' => $task,
@@ -157,8 +157,8 @@ class TaskController extends AbstractController
     public function delete(Request $request, Task $task): Response
     {
         $form = $this->createForm(
-            TaskType::class, 
-            $task, 
+            TaskType::class,
+            $task,
             [
                 'method' => 'DELETE',
                 'action' => $this->generateUrl('task_delete', ['id' => $task->getId()]),
@@ -178,7 +178,7 @@ class TaskController extends AbstractController
         }
 
         return $this->render(
-            'task/delete.html.twig', 
+            'task/delete.html.twig',
             [
                 'form' => $form->createView(),
                 'task' => $task,

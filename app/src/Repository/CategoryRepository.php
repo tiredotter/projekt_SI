@@ -4,8 +4,9 @@ namespace App\Repository;
 
 use App\Entity\Category;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
-use Doctrine\Persistence\ManagerRegistry;
 use Doctrine\ORM\QueryBuilder;
+use Doctrine\Persistence\ManagerRegistry;
+
 /**
  * @extends ServiceEntityRepository<Category>
  *
@@ -47,7 +48,6 @@ class CategoryRepository extends ServiceEntityRepository
         return $this->getOrCreateQueryBuilder()
         ->select('partial category.{id, createdAt, updatedAt, title}')
         ->orderBy('category.updatedAt', 'DESC');
-
     }
 
     /**
@@ -60,6 +60,7 @@ class CategoryRepository extends ServiceEntityRepository
         $this->_em->persist($category);
         $this->_em->flush();
     }
+
     /**
      * Delete entity.
      *

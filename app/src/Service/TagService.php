@@ -6,8 +6,8 @@
 namespace App\Service;
 
 use App\Entity\Tag;
-use App\Repository\TagRepository;
 use App\Repository\NoteRepository;
+use App\Repository\TagRepository;
 use Doctrine\ORM\NonUniqueResultException;
 use Knp\Component\Pager\Pagination\PaginationInterface;
 use Knp\Component\Pager\PaginatorInterface;
@@ -29,11 +29,12 @@ class TagService implements TagServiceInterface
      * Paginator.
      */
     private PaginatorInterface $paginator;
+
     /**
      * Constructor.
      *
-     * @param TagRepository $tagRepository Tag repository
-     * @param PaginatorInterface $paginator      Paginator
+     * @param TagRepository      $tagRepository Tag repository
+     * @param PaginatorInterface $paginator     Paginator
      */
     public function __construct(TagRepository $tagRepository, NoteRepository $noteRepository, PaginatorInterface $paginator)
     {
@@ -49,10 +50,9 @@ class TagService implements TagServiceInterface
      */
     public function save(Tag $tag): void
     {
-
-
         $this->tagRepository->save($tag);
     }
+
     /**
      * Delete entity.
      *
@@ -78,6 +78,7 @@ class TagService implements TagServiceInterface
             TagRepository::PAGINATOR_ITEMS_PER_PAGE
         );
     }
+
     /**
      * Can Tag be deleted?
      *
@@ -96,7 +97,7 @@ class TagService implements TagServiceInterface
         }
     }
 
-        /**
+    /**
      * Find by id.
      *
      * @param int $id Tag id

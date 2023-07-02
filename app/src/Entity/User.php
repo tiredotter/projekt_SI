@@ -7,11 +7,10 @@ namespace App\Entity;
 
 use App\Entity\Enum\UserRole;
 use App\Repository\UserRepository;
-use Symfony\Component\Security\Core\User\UserInterface;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
-
+use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Class User.
@@ -23,8 +22,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
     /**
      * Primary key.
-     *
-     * @var int|null
      */
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -33,8 +30,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     /**
      * Email.
-     *
-     * @var string|null
      */
     #[ORM\Column(type: 'string', length: 180, unique: true)]
     #[Assert\NotBlank]
@@ -51,8 +46,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     /**
      * Password.
-     *
-     * @var string|null
      */
     #[ORM\Column(type: 'string')]
     #[Assert\NotBlank]
@@ -90,7 +83,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     /**
      * A visual identifier that represents this user.
-     * 
+     *
      * @return string User identifier
      *
      * @see UserInterface
@@ -102,8 +95,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     /**
      * @deprecated since Symfony 5.3, use getUserIdentifier instead
-     *  
-     * @return string Username 
+     *
+     * @return string Username
      */
     public function getUsername(): string
     {

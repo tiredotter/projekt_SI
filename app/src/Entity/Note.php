@@ -2,31 +2,28 @@
 /**
  * Note entity.
  */
+
 namespace App\Entity;
 
 use App\Repository\NoteRepository;
-use DateTimeImmutable;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
-use Doctrine\ORM\Mapping as ORM;
 use Doctrine\DBAL\Types\Types;
-use Symfony\Component\Validator\Constraints as Assert;
+use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Class Note.
  *
  * @psalm-suppress MissingConstructor
  */
-
 #[ORM\Entity(repositoryClass: NoteRepository::class)]
 #[ORM\Table(name: 'notes')]
 class Note
 {
-     /**
+    /**
      * Primary key.
-     *
-     * @var int|null
      */
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -45,7 +42,7 @@ class Note
     /**
      * Content.
      *
-     * @var Types::TEXT|null
+     * @var string|null
      */
     #[ORM\Column(type: Types::TEXT, length: 65535)]
     #[Assert\Length(min: 3, max: 65535)]
@@ -56,24 +53,22 @@ class Note
     /**
      * Created at.
      *
-     * @var DateTimeImmutable|null
      * @psalm-suppress PropertyNotSetInConstructor
      */
     #[ORM\Column(type: 'datetime_immutable')]
     #[Gedmo\Timestampable(on: 'create')]
-    private ?DateTimeImmutable $createdAt;
+    private ?\DateTimeImmutable $createdAt;
 
     /**
      * Updated at.
      *
-     * @var DateTimeImmutable|null
      * @psalm-suppress PropertyNotSetInConstructor
      */
     #[ORM\Column(type: 'datetime_immutable')]
     #[Gedmo\Timestampable(on: 'update')]
-    private ?DateTimeImmutable $updatedAt;
+    private ?\DateTimeImmutable $updatedAt;
 
-   /**
+    /**
      * Category.
      *
      * @var Category
@@ -103,13 +98,13 @@ class Note
     private ?User $author = null;
 
     /**
-     * Constructor
+     * Constructor.
      */
     public function __construct()
     {
         $this->tags = new ArrayCollection();
     }
-    
+
     /**
      * Getter for ID.
      *
@@ -119,7 +114,7 @@ class Note
     {
         return $this->id;
     }
-    
+
     /**
      * Getter for title.
      *
@@ -129,13 +124,11 @@ class Note
     {
         return $this->title;
     }
-    
+
     /**
      * Setter for title.
      *
      * @param string $title [explicite description]
-     *
-     * @return self
      */
     public function setTitle(string $title): self
     {
@@ -143,7 +136,7 @@ class Note
 
         return $this;
     }
-    
+
     /**
      * Getter for content.
      *
@@ -153,13 +146,11 @@ class Note
     {
         return $this->content;
     }
-    
+
     /**
      * Setter for content.
      *
      * @param string $content [explicite description]
-     *
-     * @return self
      */
     public function setContent(string $content): self
     {
@@ -167,7 +158,7 @@ class Note
 
         return $this;
     }
-    
+
     /**
      * Getter for category.
      *
@@ -177,13 +168,11 @@ class Note
     {
         return $this->category;
     }
-    
+
     /**
      * Setter for category.
      *
      * @param ?Category $category [explicite description]
-     *
-     * @return self
      */
     public function setCategory(?Category $category): self
     {
@@ -193,8 +182,8 @@ class Note
     }
 
     /**
-     * Getter for tags
-     * 
+     * Getter for tags.
+     *
      * @return Collection<int, Tag>
      */
     public function getTags(): Collection
@@ -231,7 +220,7 @@ class Note
     /**
      * Getter for created at.
      *
-     * @return DateTimeImmutable|null Created at
+     * @return \DateTimeImmutable|null Created at
      */
     public function getCreatedAt(): ?\DateTimeInterface
     {
@@ -241,7 +230,7 @@ class Note
     /**
      * Setter for created at.
      *
-     * @return DateTimeImmutable|null $createdAt Created at
+     * @return \DateTimeImmutable|null $createdAt Created at
      */
     public function setCreatedAt(\DateTimeInterface $createdAt): self
     {
@@ -253,7 +242,7 @@ class Note
     /**
      * Getter for updated at.
      *
-     * @return DateTimeImmutable|null Updated at
+     * @return \DateTimeImmutable|null Updated at
      */
     public function getUpdatedAt(): ?\DateTimeInterface
     {
@@ -263,7 +252,7 @@ class Note
     /**
      * Setter for updated at.
      *
-     * @return DateTimeImmutable|null $updatedAt Updated at
+     * @return \DateTimeImmutable|null $updatedAt Updated at
      */
     public function setUpdatedAt(\DateTimeInterface $updatedAt): self
     {
@@ -272,10 +261,8 @@ class Note
         return $this;
     }
 
-     /**
-     * Getter for author
-     *
-     * @return User|null
+    /**
+     * Getter for author.
      */
     public function getAuthor(): ?User
     {
@@ -283,9 +270,7 @@ class Note
     }
 
     /**
-     * Setter for author
-     *
-     * @param User|null $author
+     * Setter for author.
      *
      * @return $this
      */

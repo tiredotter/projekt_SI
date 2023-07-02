@@ -3,11 +3,10 @@
 namespace App\Entity;
 
 use App\Repository\TagRepository;
-use DateTimeImmutable;
-use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Validator\Constraints as Assert;
+
 /**
  * Class tag.
  *
@@ -24,22 +23,17 @@ class Tag
 
     /**
      * Created at.
-     *
-     * @var DateTimeImmutable|null
      */
     #[ORM\Column(type: 'datetime_immutable')]
     #[Gedmo\Timestampable(on: 'create')]
-    private ?DateTimeImmutable $createdAt;
+    private ?\DateTimeImmutable $createdAt;
 
     /**
      * Updated at.
-     *
-     * @var DateTimeImmutable|null
      */
     #[ORM\Column(type: 'datetime_immutable')]
     #[Gedmo\Timestampable(on: 'update')]
-    private ?DateTimeImmutable $updatedAt;
-
+    private ?\DateTimeImmutable $updatedAt;
 
     /**
      * Title.
@@ -63,7 +57,7 @@ class Tag
     /**
      * Getter for created at.
      *
-     * @return DateTimeImmutable|null Created at
+     * @return \DateTimeImmutable|null Created at
      */
     public function getCreatedAt(): ?\DateTimeInterface
     {
@@ -73,7 +67,7 @@ class Tag
     /**
      * Setter for created at.
      *
-     * @return DateTimeImmutable|null $createdAt Created at
+     * @return \DateTimeImmutable|null $createdAt Created at
      */
     public function setCreatedAt(\DateTimeInterface $createdAt): self
     {
@@ -85,7 +79,7 @@ class Tag
     /**
      * Getter for updated at.
      *
-     * @return DateTimeImmutable|null Updated at
+     * @return \DateTimeImmutable|null Updated at
      */
     public function getUpdatedAt(): ?\DateTimeInterface
     {
@@ -95,7 +89,7 @@ class Tag
     /**
      * Setter for updated at.
      *
-     * @return DateTimeImmutable|null $updatedAt Updated at
+     * @return \DateTimeImmutable|null $updatedAt Updated at
      */
     public function setUpdatedAt(\DateTimeInterface $updatedAt): self
     {
@@ -118,8 +112,6 @@ class Tag
      * Setter for title.
      *
      * @param string $title [explicite description]
-     *
-     * @return self
      */
     public function setTitle(string $title): self
     {

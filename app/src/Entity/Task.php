@@ -3,7 +3,6 @@
 namespace App\Entity;
 
 use App\Repository\TaskRepository;
-use DateTimeImmutable;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
@@ -22,27 +21,23 @@ class Task
     /**
      * Content.
      *
-     * @var Types::TEXT|null
+     * @var string|null
      */
     #[ORM\Column(type: Types::TEXT)]
     private ?string $content = null;
     /**
      * Created at.
-     *
-     * @var DateTimeImmutable|null
      */
     #[ORM\Column(type: 'datetime_immutable')]
     #[Gedmo\Timestampable(on: 'create')]
-    private ?DateTimeImmutable $createdAt;
+    private ?\DateTimeImmutable $createdAt;
 
     /**
      * Updated at.
-     *
-     * @var DateTimeImmutable|null
      */
     #[ORM\Column(type: 'datetime_immutable')]
     #[Gedmo\Timestampable(on: 'update')]
-    private ?DateTimeImmutable $updatedAt;
+    private ?\DateTimeImmutable $updatedAt;
 
     /**
      * Getter for ID.
@@ -68,8 +63,6 @@ class Task
      * Setter for title.
      *
      * @param string $title [explicite description]
-     *
-     * @return self
      */
     public function setTitle(string $title): self
     {
@@ -92,8 +85,6 @@ class Task
      * Setter for content.
      *
      * @param string $content [explicite description]
-     *
-     * @return self
      */
     public function setContent(string $content): self
     {
@@ -105,7 +96,7 @@ class Task
     /**
      * Getter for created at.
      *
-     * @return DateTimeImmutable|null Created at
+     * @return \DateTimeImmutable|null Created at
      */
     public function getCreatedAt(): ?\DateTimeInterface
     {
@@ -115,7 +106,7 @@ class Task
     /**
      * Setter for created at.
      *
-     * @return DateTimeImmutable|null $createdAt Created at
+     * @return \DateTimeImmutable|null $createdAt Created at
      */
     public function setCreatedAt(\DateTimeInterface $createdAt): self
     {
@@ -127,7 +118,7 @@ class Task
     /**
      * Getter for updated at.
      *
-     * @return DateTimeImmutable|null Updated at
+     * @return \DateTimeImmutable|null Updated at
      */
     public function getUpdatedAt(): ?\DateTimeInterface
     {
@@ -136,10 +127,6 @@ class Task
 
     /**
      * Setter for title.
-     *
-     * @param string $title [explicite description]
-     *
-     * @return self
      */
     public function setUpdatedAt(\DateTimeInterface $updatedAt): self
     {

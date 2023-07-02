@@ -16,7 +16,6 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
  */
 class CategoryType extends AbstractType
 {
-
     /**
      * Builds the form.
      *

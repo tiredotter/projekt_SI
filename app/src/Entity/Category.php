@@ -2,21 +2,21 @@
 /**
  * Category entity.
  */
+
 namespace App\Entity;
 
 use App\Repository\CategoryRepository;
 use DateTimeImmutable;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Validator\Constraints as Assert;
-use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * Class Category.
  *
  * @psalm-suppress MissingConstructor
  */
-
 #[ORM\Entity(repositoryClass: CategoryRepository::class)]
 #[ORM\Table(name: 'categories')]
 #[ORM\UniqueConstraint(name: 'uq_categories_title', columns: ['title'])]
@@ -25,18 +25,14 @@ class Category
 {
     /**
      * Primary key.
-     *
-     * @var int|null
      */
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
     private ?int $id = null;
-    
+
     /**
      * Title.
-     *
-     * @var string|null
      */
     #[ORM\Column(type: 'string', length: 64)]
     #[Assert\Type('string')]
@@ -46,7 +42,6 @@ class Category
 
     /**
      * Slug.
-     * @var string|null
      */
     #[ORM\Column(type: 'string', length: 64)]
     #[Assert\Type('string')]
@@ -56,23 +51,19 @@ class Category
 
     /**
      * Created at.
-     *
-     * @var DateTimeImmutable|null
      */
     #[ORM\Column(type: 'datetime_immutable')]
-    #[Assert\Type(DateTimeImmutable::class)]
+    #[Assert\Type(\DateTimeImmutable::class)]
     #[Gedmo\Timestampable(on: 'create')]
-    private ?DateTimeImmutable $createdAt;
-    
+    private ?\DateTimeImmutable $createdAt;
+
     /**
      * Updated at.
-     *
-     * @var DateTimeImmutable|null
      */
     #[ORM\Column(type: 'datetime_immutable')]
-    #[Assert\Type(DateTimeImmutable::class)]
+    #[Assert\Type(\DateTimeImmutable::class)]
     #[Gedmo\Timestampable(on: 'update')]
-    private ?DateTimeImmutable $updatedAt;
+    private ?\DateTimeImmutable $updatedAt;
 
     /**
      * Getter for ID.
@@ -93,13 +84,11 @@ class Category
     {
         return $this->title;
     }
-        
+
     /**
      * Setter for title.
      *
      * @param string $title [explicite description]
-     *
-     * @return self
      */
     public function setTitle(string $title): self
     {
@@ -107,7 +96,7 @@ class Category
 
         return $this;
     }
-    
+
     /**
      * Getter for slug.
      *
@@ -117,13 +106,11 @@ class Category
     {
         return $this->slug;
     }
-    
+
     /**
      * Setter for slug.
      *
      * @param string $slug [explicite description]
-     *
-     * @return self
      */
     public function setSlug(string $slug): self
     {
@@ -131,11 +118,11 @@ class Category
 
         return $this;
     }
-    
+
     /**
      * Getter for created at.
      *
-     * @return DateTimeImmutable|null Created at
+     * @return \DateTimeImmutable|null Created at
      */
     public function getCreatedAt(): ?\DateTimeInterface
     {
@@ -145,7 +132,7 @@ class Category
     /**
      * Setter for created at.
      *
-     * @param DateTimeImmutable|null $createdAt Created at
+     * @param \DateTimeImmutable|null $createdAt Created at
      */
     public function setCreatedAt(\DateTimeInterface $createdAt): self
     {
@@ -157,7 +144,7 @@ class Category
     /**
      * Getter for updated at.
      *
-     * @return DateTimeImmutable|null Updated at
+     * @return \DateTimeImmutable|null Updated at
      */
     public function getUpdatedAt(): ?\DateTimeInterface
     {
@@ -167,7 +154,7 @@ class Category
     /**
      * Setter for updated at.
      *
-     * @return DateTimeImmutable|null $updatedAt Updated at
+     * @return \DateTimeImmutable|null $updatedAt Updated at
      */
     public function setUpdatedAt(\DateTimeInterface $updatedAt): self
     {

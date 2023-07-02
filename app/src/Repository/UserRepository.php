@@ -3,16 +3,17 @@
  * This is the license block.
  * It can contain licensing information, copyright notices, etc.
  */
+
 namespace App\Repository;
 
 use App\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\QueryBuilder;
 use Doctrine\Persistence\ManagerRegistry;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\PasswordUpgraderInterface;
-use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 /**
  * @extends ServiceEntityRepository<User>
@@ -37,10 +38,7 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
     public const PAGINATOR_ITEMS_PER_PAGE = 10;
 
     /**
-     * Constructor
-     *
-     * @param ManagerRegistry             $registry
-     * @param UserPasswordHasherInterface $passwordHasher
+     * Constructor.
      */
     public function __construct(ManagerRegistry $registry, UserPasswordHasherInterface $passwordHasher)
     {
@@ -49,11 +47,7 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
     }
 
     /**
-     * Save user
-     *
-     * @param User $entity
-     *
-     * @return void
+     * Save user.
      */
     public function save(User $entity): void
     {
@@ -64,11 +58,7 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
     }
 
     /**
-     * Create user
-     *
-     * @param User $entity
-     *
-     * @return void
+     * Create user.
      */
     public function create(User $entity): void
     {
@@ -80,11 +70,7 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
     }
 
     /**
-     * Remove user
-     *
-     * @param User $entity
-     *
-     * @return void
+     * Remove user.
      */
     public function remove(User $entity): void
     {
@@ -92,14 +78,8 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
         $this->getEntityManager()->flush();
     }
 
-
     /**
-     * Upgrade password function
-     *
-     * @param PasswordAuthenticatedUserInterface $user
-     * @param string                             $newHashedPassword
-     *
-     * @return void
+     * Upgrade password function.
      */
     public function upgradePassword(PasswordAuthenticatedUserInterface $user, string $newHashedPassword): void
     {
@@ -114,8 +94,6 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
 
     /**
      * Query all users.
-     *
-     * @return QueryBuilder
      */
     public function queryAll(): QueryBuilder
     {

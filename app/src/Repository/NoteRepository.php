@@ -23,7 +23,7 @@ use Doctrine\Persistence\ManagerRegistry;
  * @method Note[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  *
  * @extends ServiceEntityRepository<Note>
- * 
+ *
  * @psalm-suppress LessSpecificImplementedReturnType
  */
 class NoteRepository extends ServiceEntityRepository
@@ -74,7 +74,7 @@ class NoteRepository extends ServiceEntityRepository
     /**
      * Query notes by author.
      *
-     * @param User         $user    User entity
+     * @param User                  $user    User entity
      * @param array<string, object> $filters Filters
      *
      * @return QueryBuilder Query builder
@@ -88,8 +88,6 @@ class NoteRepository extends ServiceEntityRepository
 
         return $queryBuilder;
     }
-
-    
 
     /**
      * Count notes by category.
@@ -113,11 +111,7 @@ class NoteRepository extends ServiceEntityRepository
     }
 
     /**
-     * Count reports by user
-     *
-     * @param User $user
-     *
-     * @return int
+     * Count reports by user.
      *
      * @throws NoResultException
      * @throws NonUniqueResultException
@@ -189,5 +183,4 @@ class NoteRepository extends ServiceEntityRepository
     {
         return $queryBuilder ?? $this->createQueryBuilder('note');
     }
-    
 }

@@ -14,15 +14,10 @@ class SecurityController extends AbstractController
 {
     /**
      * Login function.
-     *
-     * @param AuthenticationUtils $authenticationUtils
-     *
-     * @return Response
      */
     #[Route(path: '/login', name: 'app_login')]
     public function login(AuthenticationUtils $authenticationUtils): Response
     {
-
         // get the login error if there is one
         $error = $authenticationUtils->getLastAuthenticationError();
         // last username entered by the user
@@ -30,12 +25,9 @@ class SecurityController extends AbstractController
 
         return $this->render('security/login.html.twig', ['last_username' => $lastUsername, 'error' => $error]);
     }
-     /**
+    /**
      * Logout function.
-     *
-     * @return void
      */
-
     #[Route(path: '/logout', name: 'app_logout')]
     public function logout(): void
     {

@@ -17,7 +17,6 @@ use Doctrine\Persistence\ManagerRegistry;
  */
 class TaskRepository extends ServiceEntityRepository
 {
-    
     /**
      * Items per page.
      *
@@ -28,7 +27,7 @@ class TaskRepository extends ServiceEntityRepository
      * @constant int
      */
     public const PAGINATOR_ITEMS_PER_PAGE = 10;
-    
+
     /**
      * Constructor.
      *
@@ -71,7 +70,7 @@ class TaskRepository extends ServiceEntityRepository
         $this->_em->remove($task);
         $this->_em->flush();
     }
-    
+
     /**
      * Get or create new query builder.
      *

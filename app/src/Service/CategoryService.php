@@ -22,7 +22,7 @@ class CategoryService implements CategoryServiceInterface
      * Category repository.
      */
     private CategoryRepository $categoryRepository;
-    
+
     /**
      * Note repository.
      */
@@ -34,15 +34,10 @@ class CategoryService implements CategoryServiceInterface
     private PaginatorInterface $paginator;
 
     /**
-     * Constructor
-     *
-     * @param CategoryRepository $categoryRepository
-     * @param NoteRepository   $noteRepository
-     * @param PaginatorInterface $paginator
+     * Constructor.
      */
     public function __construct(CategoryRepository $categoryRepository, NoteRepository $noteRepository, PaginatorInterface $paginator)
     {
-
         $this->categoryRepository = $categoryRepository;
         $this->noteRepository = $noteRepository;
         $this->paginator = $paginator;
@@ -65,11 +60,7 @@ class CategoryService implements CategoryServiceInterface
     }
 
     /**
-     * Save category
-     *
-     * @param Category $category
-     *
-     * @return void
+     * Save category.
      */
     public function save(Category $category): void
     {
@@ -82,11 +73,7 @@ class CategoryService implements CategoryServiceInterface
     }
 
     /**
-     * Delete category
-     *
-     * @param Category $category
-     *
-     * @return bool
+     * Delete category.
      */
     public function delete(Category $category): bool
     {
@@ -116,7 +103,7 @@ class CategoryService implements CategoryServiceInterface
             return false;
         }
     }
-    
+
     /**
      * Find by id.
      *

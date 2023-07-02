@@ -14,7 +14,6 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
-
 /**
  * Class TagController.
  */
@@ -102,8 +101,8 @@ class TagController extends AbstractController
     /**
      * Delete action.
      *
-     * @param Request  $request  HTTP request
-     * @param Tag $tag Tag entity
+     * @param Request $request HTTP request
+     * @param Tag     $tag     Tag entity
      *
      * @return Response HTTP response
      */
@@ -111,8 +110,8 @@ class TagController extends AbstractController
     /**
      * Delete action.
      *
-     * @param Request  $request  HTTP request
-     * @param Tag $tag Tag entity
+     * @param Request $request HTTP request
+     * @param Tag     $tag     Tag entity
      *
      * @return Response HTTP response
      */
@@ -131,8 +130,8 @@ class TagController extends AbstractController
         */
 
         $form = $this->createForm(
-            FormType::class, 
-            $tag, 
+            FormType::class,
+            $tag,
             [
               'method' => 'DELETE',
               'action' => $this->generateUrl('tag_delete', ['id' => $tag->getId()]),

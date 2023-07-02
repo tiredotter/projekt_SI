@@ -104,7 +104,7 @@ class NoteVoter extends Voter
      * Checks if user can edit Note.
      *
      * @param Note $Note Note entity
-     * @param User   $user   User
+     * @param User $user User
      *
      * @return bool Result
      */
@@ -120,8 +120,7 @@ class NoteVoter extends Voter
     /**
      * Checks if user can view Note.
      *
-     * @param Note $note Note entity
-     * @param User   $user   User
+     * @param User $user User
      *
      * @return bool Result
      */
@@ -138,7 +137,7 @@ class NoteVoter extends Voter
      * Checks if user can delete Note.
      *
      * @param Note $Note Note entity
-     * @param User   $user   User
+     * @param User $user User
      *
      * @return bool Result
      */
