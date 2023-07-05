@@ -1,4 +1,8 @@
 <?php
+/**
+ * This is the license block.
+ * It can contain licensing information, copyright notices, etc.
+ */
 
 namespace App\Entity;
 
@@ -7,6 +11,11 @@ use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 
+/**
+ * Class task.
+ *
+ * @psalm-suppress MissingConstructor
+ */
 #[ORM\Entity(repositoryClass: TaskRepository::class)]
 class Task
 {
@@ -40,9 +49,9 @@ class Task
     private ?\DateTimeImmutable $updatedAt;
 
     /**
-     * Getter for ID.
+     * Getter for Id.
      *
-     * @return int
+     * @return int|null Id
      */
     public function getId(): ?int
     {
@@ -52,7 +61,7 @@ class Task
     /**
      * Getter for title.
      *
-     * @return string
+     * @return string|null Title
      */
     public function getTitle(): ?string
     {
@@ -62,19 +71,17 @@ class Task
     /**
      * Setter for title.
      *
-     * @param string $title [explicite description]
+     * @param string|null $title Title
      */
-    public function setTitle(string $title): self
+    public function setTitle(?string $title): void
     {
         $this->title = $title;
-
-        return $this;
     }
 
     /**
      * Getter for content.
      *
-     * @return string
+     * @return string|null This content
      */
     public function getContent(): ?string
     {
@@ -84,7 +91,9 @@ class Task
     /**
      * Setter for content.
      *
-     * @param string $content [explicite description]
+     * @param string $content Content
+     *
+     * @return $this Task
      */
     public function setContent(string $content): self
     {
@@ -106,13 +115,11 @@ class Task
     /**
      * Setter for created at.
      *
-     * @return \DateTimeImmutable|null $createdAt Created at
+     * @param \DateTimeImmutable|null $createdAt Created at
      */
-    public function setCreatedAt(\DateTimeInterface $createdAt): self
+    public function setCreatedAt(\DateTimeInterface $createdAt): void
     {
         $this->createdAt = $createdAt;
-
-        return $this;
     }
 
     /**
@@ -126,12 +133,12 @@ class Task
     }
 
     /**
-     * Setter for title.
+     * Setter for updated at.
+     *
+     * @param \DateTimeImmutable|null $updatedAt Updated at
      */
-    public function setUpdatedAt(\DateTimeInterface $updatedAt): self
+    public function setUpdatedAt(\DateTimeInterface $updatedAt): void
     {
         $this->updatedAt = $updatedAt;
-
-        return $this;
     }
 }

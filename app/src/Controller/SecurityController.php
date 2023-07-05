@@ -1,4 +1,8 @@
 <?php
+/**
+ * This is the license block.
+ * It can contain licensing information, copyright notices, etc.
+ */
 
 namespace App\Controller;
 
@@ -14,6 +18,10 @@ class SecurityController extends AbstractController
 {
     /**
      * Login function.
+     *
+     * @param AuthenticationUtils $authenticationUtils Authentication utils
+     *
+     * @return Response Response
      */
     #[Route(path: '/login', name: 'app_login')]
     public function login(AuthenticationUtils $authenticationUtils): Response

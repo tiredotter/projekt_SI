@@ -16,11 +16,19 @@ interface UserServiceInterface
 {
     /**
      * Save user.
+     *
+     * @param User $user User
+     *
+     * @return void Result
      */
     public function save(User $user): void;
 
     /**
      * Delete user.
+     *
+     * @param User $user User
+     *
+     * @return bool Bool result
      */
     public function delete(User $user): bool;
 
@@ -35,11 +43,17 @@ interface UserServiceInterface
 
     /**
      * Find on by ID.
+     * 
+     * @param int|null ID
      */
     public function findOneById(int $id): ?User;
 
     /**
      * Create user.
+     *
+     * @param User $user User
+     *
+     * @return void Bool result
      */
     public function create(User $user): void;
 }

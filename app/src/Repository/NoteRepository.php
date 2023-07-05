@@ -1,5 +1,10 @@
 <?php
 /**
+ * This is the license block.
+ * It can contain licensing information, copyright notices, etc.
+ */
+
+/**
  * Note repository.
  */
 
@@ -113,8 +118,12 @@ class NoteRepository extends ServiceEntityRepository
     /**
      * Count reports by user.
      *
+     * @param User $user User entity
+     * 
      * @throws NoResultException
      * @throws NonUniqueResultException
+     * 
+     * @return int|null
      */
     public function countByUser(User $user): int
     {

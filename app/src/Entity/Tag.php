@@ -1,4 +1,8 @@
 <?php
+/**
+ * This is the license block.
+ * It can contain licensing information, copyright notices, etc.
+ */
 
 namespace App\Entity;
 
@@ -67,13 +71,11 @@ class Tag
     /**
      * Setter for created at.
      *
-     * @return \DateTimeImmutable|null $createdAt Created at
+     * @param \DateTimeImmutable|null $createdAt Created at
      */
-    public function setCreatedAt(\DateTimeInterface $createdAt): self
+    public function setCreatedAt(\DateTimeInterface $createdAt): void
     {
         $this->createdAt = $createdAt;
-
-        return $this;
     }
 
     /**
@@ -89,13 +91,11 @@ class Tag
     /**
      * Setter for updated at.
      *
-     * @return \DateTimeImmutable|null $updatedAt Updated at
+     * @param \DateTimeImmutable|null $updatedAt Updated at
      */
-    public function setUpdatedAt(\DateTimeInterface $updatedAt): self
+    public function setUpdatedAt(\DateTimeInterface $updatedAt): void
     {
         $this->updatedAt = $updatedAt;
-
-        return $this;
     }
 
     /**
@@ -111,12 +111,10 @@ class Tag
     /**
      * Setter for title.
      *
-     * @param string $title [explicite description]
+     * @param string|null $title Title
      */
-    public function setTitle(string $title): self
+    public function setTitle(?string $title): void
     {
         $this->title = $title;
-
-        return $this;
     }
 }

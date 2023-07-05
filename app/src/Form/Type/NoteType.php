@@ -55,7 +55,8 @@ class NoteType extends AbstractType
                 'label' => 'label.title',
                 'required' => true,
                 'attr' => ['max_length' => 64],
-            ]);
+            ]
+        );
 
         $builder->add(
             'content',
@@ -64,7 +65,8 @@ class NoteType extends AbstractType
                 'label' => 'label.content',
                 'required' => true,
                 'attr' => ['max_length' => 65535],
-            ]);
+            ]
+        );
 
         $builder->add(
             'category',

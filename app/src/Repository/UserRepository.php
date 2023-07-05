@@ -39,6 +39,9 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
 
     /**
      * Constructor.
+     *
+     * @param ManagerRegistry             $registry       Manager Registry
+     * @param UserPasswordHasherInterface $passwordHasher User Password Hasher Interface
      */
     public function __construct(ManagerRegistry $registry, UserPasswordHasherInterface $passwordHasher)
     {
@@ -48,6 +51,10 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
 
     /**
      * Save user.
+     *
+     * @param User $entity User entity
+     *
+     * @return void Result
      */
     public function save(User $entity): void
     {
@@ -59,6 +66,10 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
 
     /**
      * Create user.
+     *
+     * @param User $entity User entity
+     *
+     * @return void Result
      */
     public function create(User $entity): void
     {
@@ -71,6 +82,10 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
 
     /**
      * Remove user.
+     *
+     * @param User $entity User entity
+     *
+     * @return void Result
      */
     public function remove(User $entity): void
     {
@@ -80,6 +95,11 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
 
     /**
      * Upgrade password function.
+     *
+     * @param PasswordAuthenticatedUserInterface $user              User entity
+     * @param string                             $newHashedPassword Hashed password
+     *
+     * @return void Result
      */
     public function upgradePassword(PasswordAuthenticatedUserInterface $user, string $newHashedPassword): void
     {
@@ -94,6 +114,8 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
 
     /**
      * Query all users.
+     *
+     * @return QueryBuilder Query builder
      */
     public function queryAll(): QueryBuilder
     {

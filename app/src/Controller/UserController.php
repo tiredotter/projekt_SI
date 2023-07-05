@@ -3,6 +3,7 @@
  * This is the license block.
  * It can contain licensing information, copyright notices, etc.
  */
+
 /**
  * User controller.
  */
@@ -40,6 +41,9 @@ class UserController extends AbstractController
 
     /**
      * Constructor.
+     *
+     * @param UserServiceInterface $userService User service
+     * @param TranslatorInterface  $translator  Translator
      */
     public function __construct(UserServiceInterface $userService, TranslatorInterface $translator)
     {
@@ -66,6 +70,10 @@ class UserController extends AbstractController
 
     /**
      * Show action.
+     *
+     * @param User $user User entity
+     *
+     * @return Response Response
      */
     #[Route(
         '/{id}',

@@ -35,6 +35,10 @@ class CategoryService implements CategoryServiceInterface
 
     /**
      * Constructor.
+     *
+     * @param CategoryRepository $categoryRepository Category service
+     * @param NoteRepository     $noteRepository     Note repository
+     * @param PaginatorInterface $paginator          Paginator
      */
     public function __construct(CategoryRepository $categoryRepository, NoteRepository $noteRepository, PaginatorInterface $paginator)
     {
@@ -61,6 +65,8 @@ class CategoryService implements CategoryServiceInterface
 
     /**
      * Save category.
+     * 
+     * @param Category $category Category entity
      */
     public function save(Category $category): void
     {
@@ -74,6 +80,10 @@ class CategoryService implements CategoryServiceInterface
 
     /**
      * Delete category.
+     * 
+     * @param Category $category Category entity
+     * 
+     * @return bool Bool 
      */
     public function delete(Category $category): bool
     {

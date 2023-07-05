@@ -30,6 +30,10 @@ class UserService implements UserServiceInterface
 
     /**
      * Constructor.
+     *
+     * @param UserRepository     $userRepository User repository
+     * @param PaginatorInterface $paginator      Paginator
+     * @param NoteRepository     $noteRepository Note repository
      */
     public function __construct(UserRepository $userRepository, PaginatorInterface $paginator, NoteRepository $noteRepository)
     {
@@ -40,6 +44,10 @@ class UserService implements UserServiceInterface
 
     /**
      * Save user.
+     *
+     * @param User $user User entity
+     *
+     * @return void Result
      */
     public function save(User $user): void
     {
@@ -48,6 +56,10 @@ class UserService implements UserServiceInterface
 
     /**
      * Create user.
+     *
+     * @param User $user User entity
+     *
+     * @return void Result
      */
     public function create(User $user): void
     {
@@ -56,6 +68,10 @@ class UserService implements UserServiceInterface
 
     /**
      * Delete user.
+     *
+     * @param User $user User entity
+     *
+     * @return bool Bool
      */
     public function delete(User $user): bool
     {
@@ -70,6 +86,10 @@ class UserService implements UserServiceInterface
 
     /**
      * Can user be deleted?
+     *
+     * @param User $user User
+     *
+     * @return bool Bool
      */
     public function canBeDeleted(User $user): bool
     {

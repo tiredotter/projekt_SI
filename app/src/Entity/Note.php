@@ -130,11 +130,9 @@ class Note
      *
      * @param string $title [explicite description]
      */
-    public function setTitle(string $title): self
+    public function setTitle(string $title): void
     {
         $this->title = $title;
-
-        return $this;
     }
 
     /**
@@ -152,11 +150,9 @@ class Note
      *
      * @param string $content [explicite description]
      */
-    public function setContent(string $content): self
+    public function setContent(string $content): void
     {
         $this->content = $content;
-
-        return $this;
     }
 
     /**
@@ -174,11 +170,9 @@ class Note
      *
      * @param ?Category $category [explicite description]
      */
-    public function setCategory(?Category $category): self
+    public function setCategory(?Category $category): void
     {
         $this->category = $category;
-
-        return $this;
     }
 
     /**
@@ -196,13 +190,11 @@ class Note
      *
      * @param Tag $tag Tag entity
      */
-    public function addTag(Tag $tag): self
+    public function addTag(Tag $tag): void
     {
         if (!$this->tags->contains($tag)) {
             $this->tags->add($tag);
         }
-
-        return $this;
     }
 
     /**
@@ -210,11 +202,9 @@ class Note
      *
      * @param Tag $tag Tag entity
      */
-    public function removeTag(Tag $tag): self
+    public function removeTag(Tag $tag): void
     {
         $this->tags->removeElement($tag);
-
-        return $this;
     }
 
     /**
@@ -230,13 +220,11 @@ class Note
     /**
      * Setter for created at.
      *
-     * @return \DateTimeImmutable|null $createdAt Created at
+     * @param \DateTimeImmutable|null $createdAt Created at
      */
-    public function setCreatedAt(\DateTimeInterface $createdAt): self
+    public function setCreatedAt(\DateTimeInterface $createdAt): void
     {
         $this->createdAt = $createdAt;
-
-        return $this;
     }
 
     /**
@@ -252,17 +240,17 @@ class Note
     /**
      * Setter for updated at.
      *
-     * @return \DateTimeImmutable|null $updatedAt Updated at
+     * @param \DateTimeImmutable|null $updatedAt Updated at
      */
-    public function setUpdatedAt(\DateTimeInterface $updatedAt): self
+    public function setUpdatedAt(\DateTimeInterface $updatedAt): void
     {
         $this->updatedAt = $updatedAt;
-
-        return $this;
     }
 
     /**
      * Getter for author.
+     *
+     * @return User|null Author
      */
     public function getAuthor(): ?User
     {
@@ -272,7 +260,9 @@ class Note
     /**
      * Setter for author.
      *
-     * @return $this
+     * @param User|null $author Author
+     *
+     * @return $this Report
      */
     public function setAuthor(?User $author): self
     {

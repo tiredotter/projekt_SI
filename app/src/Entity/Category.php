@@ -89,6 +89,8 @@ class Category
      * Setter for title.
      *
      * @param string $title [explicite description]
+     * 
+     * @return $this Title
      */
     public function setTitle(string $title): self
     {
@@ -111,6 +113,8 @@ class Category
      * Setter for slug.
      *
      * @param string $slug [explicite description]
+     * 
+     * @return $this Slug
      */
     public function setSlug(string $slug): self
     {
@@ -134,11 +138,9 @@ class Category
      *
      * @param \DateTimeImmutable|null $createdAt Created at
      */
-    public function setCreatedAt(\DateTimeInterface $createdAt): self
+    public function setCreatedAt(\DateTimeInterface $createdAt): void
     {
         $this->createdAt = $createdAt;
-
-        return $this;
     }
 
     /**
@@ -154,12 +156,10 @@ class Category
     /**
      * Setter for updated at.
      *
-     * @return \DateTimeImmutable|null $updatedAt Updated at
+     * @param \DateTimeImmutable|null $updatedAt Updated at
      */
-    public function setUpdatedAt(\DateTimeInterface $updatedAt): self
+    public function setUpdatedAt(\DateTimeInterface $updatedAt): void
     {
         $this->updatedAt = $updatedAt;
-
-        return $this;
     }
 }

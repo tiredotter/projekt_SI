@@ -103,50 +103,51 @@ class NoteVoter extends Voter
     /**
      * Checks if user can edit Note.
      *
-     * @param Note $Note Note entity
+     * @param Note $note Note entity
      * @param User $user User
      *
      * @return bool Result
      */
-    private function canEdit(Note $Note, User $user): bool
+    private function canEdit(Note $note, User $user): bool
     {
         if ($this->security->isGranted('ROLE_ADMIN')) {
             return true;
         }
 
-        return $Note->getAuthor() === $user;
+        return $note->getAuthor() === $user;
     }
 
     /**
      * Checks if user can view Note.
-     *
+     * 
+     * @param Note $note Note
      * @param User $user User
-     *
+     * 
      * @return bool Result
      */
-    private function canView(Note $Note, User $user): bool
+    private function canView(Note $note, User $user): bool
     {
         if ($this->security->isGranted('ROLE_ADMIN')) {
             return true;
         }
 
-        return $Note->getAuthor() === $user;
+        return $note->getAuthor() === $user;
     }
 
     /**
      * Checks if user can delete Note.
      *
-     * @param Note $Note Note entity
+     * @param Note $note Note entity
      * @param User $user User
      *
      * @return bool Result
      */
-    private function canDelete(Note $Note, User $user): bool
+    private function canDelete(Note $note, User $user): bool
     {
         if ($this->security->isGranted('ROLE_ADMIN')) {
             return true;
         }
 
-        return $Note->getAuthor() === $user;
+        return $note->getAuthor() === $user;
     }
 }
