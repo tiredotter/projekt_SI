@@ -42,7 +42,7 @@ class Note
     /**
      * Content.
      *
-     * @var string|null
+     * @var string|null Content
      */
     #[ORM\Column(type: Types::TEXT, length: 65535)]
     #[Assert\Length(min: 3, max: 65535)]
@@ -71,7 +71,7 @@ class Note
     /**
      * Category.
      *
-     * @var Category
+     * @var Category Category
      */
     #[ORM\ManyToOne(targetEntity: Category::class, fetch: 'EXTRA_LAZY')]
     #[ORM\JoinColumn(nullable: false)]
@@ -81,7 +81,7 @@ class Note
     /**
      * Tags.
      *
-     * @var ArrayCollection<int, Tag>
+     * @var ArrayCollection<int, Tag> Tags
      */
     #[Assert\Valid]
     #[ORM\ManyToMany(targetEntity: Tag::class, fetch: 'EXTRA_LAZY', orphanRemoval: true)]
@@ -108,7 +108,7 @@ class Note
     /**
      * Getter for ID.
      *
-     * @return int
+     * @return int Id
      */
     public function getId(): ?int
     {
@@ -118,7 +118,7 @@ class Note
     /**
      * Getter for title.
      *
-     * @return string
+     * @return string Title
      */
     public function getTitle(): ?string
     {
@@ -128,7 +128,7 @@ class Note
     /**
      * Setter for title.
      *
-     * @param string $title [explicite description]
+     * @param string Title
      */
     public function setTitle(string $title): void
     {
@@ -138,7 +138,7 @@ class Note
     /**
      * Getter for content.
      *
-     * @return string
+     * @return string Content
      */
     public function getContent(): ?string
     {
@@ -148,7 +148,7 @@ class Note
     /**
      * Setter for content.
      *
-     * @param string $content [explicite description]
+     * @param string $content Content
      */
     public function setContent(string $content): void
     {
@@ -158,7 +158,7 @@ class Note
     /**
      * Getter for category.
      *
-     * @return Category
+     * @return Category Category
      */
     public function getCategory(): ?Category
     {
@@ -168,7 +168,7 @@ class Note
     /**
      * Setter for category.
      *
-     * @param ?Category $category [explicite description]
+     * @param ?Category $category Category
      */
     public function setCategory(?Category $category): void
     {
@@ -178,7 +178,7 @@ class Note
     /**
      * Getter for tags.
      *
-     * @return Collection<int, Tag>
+     * @return Collection<int, Tag> Tags
      */
     public function getTags(): Collection
     {

@@ -19,21 +19,28 @@ use Gedmo\Mapping\Annotation as Gedmo;
 #[ORM\Entity(repositoryClass: TaskRepository::class)]
 class Task
 {
+    /**
+     * Primary key.
+     */
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
     private ?int $id = null;
 
+    /**
+     * Title.
+     */
     #[ORM\Column(length: 255)]
     private ?string $title = null;
 
     /**
      * Content.
      *
-     * @var string|null
+     * @var string|null Content
      */
     #[ORM\Column(type: Types::TEXT)]
     private ?string $content = null;
+
     /**
      * Created at.
      */
@@ -81,7 +88,7 @@ class Task
     /**
      * Getter for content.
      *
-     * @return string|null This content
+     * @return string|null Content
      */
     public function getContent(): ?string
     {
