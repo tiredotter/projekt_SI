@@ -119,10 +119,10 @@ class NoteRepository extends ServiceEntityRepository
      * Count reports by user.
      *
      * @param User $user User entity
-     * 
+     *
      * @throws NoResultException
      * @throws NonUniqueResultException
-     * 
+     *
      * @return int|null
      */
     public function countByUser(User $user): int

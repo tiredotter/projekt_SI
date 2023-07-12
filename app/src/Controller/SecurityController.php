@@ -12,7 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 /**
- *Class securityController.
+ * Class securityController.
  */
 class SecurityController extends AbstractController
 {
@@ -33,6 +33,7 @@ class SecurityController extends AbstractController
 
         return $this->render('security/login.html.twig', ['last_username' => $lastUsername, 'error' => $error]);
     }
+
     /**
      * Logout function.
      */

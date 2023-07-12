@@ -119,10 +119,10 @@ class NoteVoter extends Voter
 
     /**
      * Checks if user can view Note.
-     * 
+     *
      * @param Note $note Note
      * @param User $user User
-     * 
+     *
      * @return bool Result
      */
     private function canView(Note $note, User $user): bool

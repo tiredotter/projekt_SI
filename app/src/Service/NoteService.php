@@ -51,7 +51,7 @@ class NoteService implements NoteServiceInterface
      * @param NoteRepository           $noteRepository  Note repository
      * @param Security                 $security        Security
      */
-    public function __construct(CategoryServiceInterface $categoryService, PaginatorInterface $paginator, TagServiceInterface $tagService, NoteRepository $noteRepository, Security $security) 
+    public function __construct(CategoryServiceInterface $categoryService, PaginatorInterface $paginator, TagServiceInterface $tagService, NoteRepository $noteRepository, Security $security)
     {
         $this->categoryService = $categoryService;
         $this->paginator = $paginator;

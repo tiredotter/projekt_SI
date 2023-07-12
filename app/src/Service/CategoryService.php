@@ -65,7 +65,7 @@ class CategoryService implements CategoryServiceInterface
 
     /**
      * Save category.
-     * 
+     *
      * @param Category $category Category entity
      */
     public function save(Category $category): void
@@ -80,10 +80,10 @@ class CategoryService implements CategoryServiceInterface
 
     /**
      * Delete category.
-     * 
+     *
      * @param Category $category Category entity
-     * 
-     * @return bool Bool 
+     *
+     * @return bool Bool
      */
     public function delete(Category $category): bool
     {

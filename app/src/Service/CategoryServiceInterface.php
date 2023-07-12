@@ -24,14 +24,14 @@ interface CategoryServiceInterface
 
     /**
      * Save category.
-     * 
+     *
      * @param Category $category Category entity
      */
     public function save(Category $category): void;
 
     /**
      * Delete category.
-     * 
+     *
      * @param Category $category Category entity
      */
     public function delete(Category $category): bool;
@@ -47,7 +47,7 @@ interface CategoryServiceInterface
 
     /**
      * Find category by ID.
-     * 
+     *
      * @param int $id id
      */
     public function findOneById(int $id): ?Category;

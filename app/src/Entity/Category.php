@@ -88,8 +88,8 @@ class Category
     /**
      * Setter for title.
      *
-     * @param string $title [explicite description]
-     * 
+     * @param string $title [expliciteDescription]
+     *
      * @return $this Title
      */
     public function setTitle(string $title): self
@@ -113,7 +113,7 @@ class Category
      * Setter for slug.
      *
      * @param string $slug [explicite description]
-     * 
+     *
      * @return $this Slug
      */
     public function setSlug(string $slug): self

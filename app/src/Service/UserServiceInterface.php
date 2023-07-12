@@ -43,8 +43,8 @@ interface UserServiceInterface
 
     /**
      * Find on by ID.
-     * 
-     * @param int|null ID
+     *
+     * @param int|null $id ID
      */
     public function findOneById(int $id): ?User;
 
