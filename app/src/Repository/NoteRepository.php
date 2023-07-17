@@ -99,10 +99,10 @@ class NoteRepository extends ServiceEntityRepository
      *
      * @param Category $category Category
      *
-     * @throws NoResultException
-     * @throws NonUniqueResultException
-     *
      * @return int Number of notes in category
+     *
+     * @throws NoResultException        No result exception
+     * @throws NonUniqueResultException Non unique Result Exception
      */
     public function countByCategory(Category $category): int
     {
@@ -120,10 +120,10 @@ class NoteRepository extends ServiceEntityRepository
      *
      * @param User $user User entity
      *
-     * @throws NoResultException
-     * @throws NonUniqueResultException
-     *
      * @return int|null User
+     *
+     * @throws NoResultException        No result exception
+     * @throws NonUniqueResultException Non unique Result Exception
      */
     public function countByUser(User $user): int
     {

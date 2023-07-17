@@ -653,12 +653,12 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Entity\\Task",
             "name": "Task",
-            "summary": "",
+            "summary": "Class\u0020task.",
             "url": "classes/App-Entity-Task.html"
         },                {
             "fqsen": "\\App\\Entity\\Task\u003A\u003AgetId\u0028\u0029",
             "name": "getId",
-            "summary": "Getter\u0020for\u0020ID.",
+            "summary": "Getter\u0020for\u0020Id.",
             "url": "classes/App-Entity-Task.html#method_getId"
         },                {
             "fqsen": "\\App\\Entity\\Task\u003A\u003AgetTitle\u0028\u0029",
@@ -698,17 +698,17 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Entity\\Task\u003A\u003AsetUpdatedAt\u0028\u0029",
             "name": "setUpdatedAt",
-            "summary": "Setter\u0020for\u0020title.",
+            "summary": "Setter\u0020for\u0020updated\u0020at.",
             "url": "classes/App-Entity-Task.html#method_setUpdatedAt"
         },                {
             "fqsen": "\\App\\Entity\\Task\u003A\u003A\u0024id",
             "name": "id",
-            "summary": "",
+            "summary": "Primary\u0020key.",
             "url": "classes/App-Entity-Task.html#property_id"
         },                {
             "fqsen": "\\App\\Entity\\Task\u003A\u003A\u0024title",
             "name": "title",
-            "summary": "",
+            "summary": "Title.",
             "url": "classes/App-Entity-Task.html#property_title"
         },                {
             "fqsen": "\\App\\Entity\\Task\u003A\u003A\u0024content",

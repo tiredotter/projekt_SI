@@ -128,7 +128,7 @@ class Note
     /**
      * Setter for title.
      *
-     * @param string Title
+     * @param string $title Title
      */
     public function setTitle(string $title): void
     {

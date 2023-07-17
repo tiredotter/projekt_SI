@@ -1,18 +1,5 @@
-   1) src/Entity/Note.php (phpdoc_summary)
-   2) src/Repository/NoteRepository.php (phpdoc_order, phpdoc_separation, phpdoc_trim)
 
-Found 2 of 45 files that can be fixed in 2.773 seconds, 18.000 MB memory used
-
-FILE: /home/wwwroot/app/src/Entity/Note.php
-----------------------------------------------------------------------
-FOUND 2 ERRORS AFFECTING 2 LINES
-----------------------------------------------------------------------
- 128 | ERROR | Doc comment for parameter "$title" missing
- 131 | ERROR | Missing parameter name
-----------------------------------------------------------------------
-
-Time: 5.92 secs; Memory: 10MB
-
+Found 0 of 45 files that can be fixed in 2.884 seconds, 18.000 MB memory used
  ------- -------- ---- ---------------------- 
   State   Domain   Id   Message Preview (en)  
  ------- -------- ---- ---------------------- 
@@ -22,10 +9,10 @@ Time: 5.92 secs; Memory: 10MB
  ------- -------- ---- ---------------------- ------------------------------- 
 
 [notice] Migrating up to DoctrineMigrations\Version20230705222541
-[notice] finished in 832.8ms, used 22M memory, 1 migrations executed, 11 sql queries
+[notice] finished in 842.5ms, used 22M memory, 1 migrations executed, 11 sql queries
 
- [OK] Successfully migrated to version :                                  
-      DoctrineMigrations\Version20230705222541                            
+ [OK] Successfully migrated to version :                                       
+      DoctrineMigrations\Version20230705222541                                 
 
 
 
